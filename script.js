@@ -1,4 +1,6 @@
 let container = document.getElementById('container');
+const refresh = document.querySelector("#refresh");
+//let refresh = document.getElementById('refresh');
 
 //code that executes function to create 16 divs
 function createDivs(number) {
@@ -16,3 +18,14 @@ function createDivs(number) {
     }
 } createDivs(256);
 
+
+refresh.addEventListener("click", function() {
+    prompt("Input desired number of squares per side.");
+});
+
+
+
+
+
+
+  
