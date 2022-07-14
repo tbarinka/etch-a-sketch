@@ -32,8 +32,12 @@ refresh.addEventListener("click", function() {
 
 function createNewDivs() {
     let num = prompt("Input desired number of squares per side.");
-    console.log(num);
-    for (let i = 1; i <= num; i++) {
+    if (num > 64) {
+        alert("Input cannot exceed 64. Please pick a lower number.");
+        return;
+    };
+
+    for (let i = 1; i <= (num * num); i++) {
         let cell = document.createElement('div');
         cell.id = "cell-" + i;
         cell.className = "cell";
@@ -41,10 +45,9 @@ function createNewDivs() {
         cell.addEventListener('mouseover', (event) => {
             cell.className = "cell-hover";
         });
-    
         container.appendChild(cell);
 
-    }
+    };
 };
 
   
