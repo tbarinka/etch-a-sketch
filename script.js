@@ -1,23 +1,29 @@
-let container = document.getElementById('container');
+let container = document.querySelector('#container');
 const refresh = document.querySelector("#refresh");
 //let refresh = document.getElementById('refresh');
 
-//code that executes function to create 16 divs
-function createDivs(number) {
+//create a single cell track (divs)
+function createCell(number) {
     for (let i = 1; i <= number; i++) {
         let cell = document.createElement('div');
         cell.id = "cell-" + i;
-        cell.className = "cell";
-        cell.textContent = "       ";
+        cell.classList.add("cell");
         cell.addEventListener('mouseover', (event) => {
             cell.className = "cell-hover";
         });
-    
         container.appendChild(cell);
-
     }
-} createDivs(256);
+}
+//create grid
+function createGrid(numRow, numCol) {
+    //container.style.setProperty('--numRows', numRow);
+    //container.style.setProperty('--numCols', numCol);
+    for (let i = 0; i < numRow; i++) {
+        createCell(numCol);
+    }
+} createGrid(16, 16);
 
+// refresh function
 refresh.addEventListener("click", function() {
     let children = document.querySelectorAll(".cell");
     for (const child of children) {
