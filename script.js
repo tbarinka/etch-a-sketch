@@ -6,7 +6,13 @@ function createDivs(number) {
         let cell = document.createElement('div');
         cell.id = "cell-" + i;
         cell.className = "cell";
-        cell.textContent = "   .    "
+        cell.textContent = "       ";
+        cell.addEventListener('mouseover', (event) => {
+            cell.className = "cell-hover";
+        });
+    
         container.appendChild(cell);
+
     }
 } createDivs(256);
+
