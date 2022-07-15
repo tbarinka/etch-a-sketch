@@ -16,12 +16,20 @@ function createCell(number) {
 }
 //create grid
 function createGrid(numRow, numCol) {
-    //container.style.setProperty('--numRows', numRow);
-    //container.style.setProperty('--numCols', numCol);
+    container.style.setProperty('--numRows', numRow);
+    container.style.setProperty('--numCols', numCol);
     for (let i = 0; i < numRow; i++) {
         createCell(numCol);
     }
 } createGrid(16, 16);
+
+//prompt for createGrid input
+function promptGrid() {
+    let row = prompt("Input number of rows.");
+    let col = prompt("Input number of columns.")
+    createGrid(row, col);
+};
+
 
 // refresh function
 refresh.addEventListener("click", function() {
@@ -33,7 +41,7 @@ refresh.addEventListener("click", function() {
     for (const child2 of children2) {
         child2.remove();
     }; 
-    createNewDivs();
+    promptGrid();
 });
 
 function createNewDivs() {
