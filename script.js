@@ -25,9 +25,13 @@ function createGrid(numRow, numCol) {
 
 //prompt for createGrid input
 function promptGrid() {
-    let row = prompt("Input number of rows.");
-    let col = prompt("Input number of columns.")
-    createGrid(row, col);
+    let size = prompt("Choose grid size between 5 and 100.");
+   
+    if ((size <= 100 ) && (size >= 5)) {
+        createGrid(size, size);
+    } else {
+        alert("Grid size must be a number between 5 and 100. Please try again.");
+    }
 };
 
 
@@ -44,24 +48,6 @@ refresh.addEventListener("click", function() {
     promptGrid();
 });
 
-function createNewDivs() {
-    let num = prompt("Input desired number of squares per side.");
-    if (num > 64) {
-        alert("Input cannot exceed 64. Please pick a lower number.");
-        return;
-    };
 
-    for (let i = 1; i <= (num * num); i++) {
-        let cell = document.createElement('div');
-        cell.id = "cell-" + i;
-        cell.className = "cell";
-        cell.textContent = "       ";
-        cell.addEventListener('mouseover', (event) => {
-            cell.className = "cell-hover";
-        });
-        container.appendChild(cell);
-
-    };
-};
 
   
